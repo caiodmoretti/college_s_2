@@ -1,7 +1,7 @@
-/*Prática
- Programe um sistema bancário simples com as seguintes funcionalidades:
+/*PrÃ¡tica
+ Programe um sistema bancÃ¡rio simples com as seguintes funcionalidades:
  - Criar conta;
- - Operar conta (verificar saldo, realizar saque, realizar depósito, realizar transferência para outra conta;
+ - Operar conta (verificar saldo, realizar saque, realizar depÃ³sito, realizar transferÃªncia para outra conta;
  * */
 
 package aula_1;
@@ -10,18 +10,16 @@ package aula_1;
 import java.util.Scanner;
 
 public class Principal {
-
-
 	public static void main(String[] args) {
 		Scanner entrada_pelo_teclado = new Scanner(System.in);
 
-		Conta conta_01 = new Conta();
-		Conta conta_02 = new Conta();
 		double valor = 0;
+		int numero_da_conta =0;
 		int opcao;
 		do{
-            System.out.println("Informe a operação:");
-            System.out.println("1 - Editar informações da conta");
+            System.out.println("Informe a operaÃ§Ã£o:");
+            System.out.println("0 - Criar conta");
+            System.out.println("1 - Editar informaÃ§Ãµes da conta");
             System.out.println("2 - Verificar saldo");
             System.out.println("3 - Depositar");
             System.out.println("4 - Sacar");            
@@ -29,21 +27,24 @@ public class Principal {
             System.out.println("6 - Encerrar");
             opcao = entrada_pelo_teclado.nextInt();
             switch (opcao){
-            	case 1: conta_01.editar_conta();     
+        	case 0:	Conta obj = new Conta(); 
+        		numero_da_conta += 1;
+        			break;            
+            	case 1: Conta.editar_conta();     
             			break;
-            	case 2:	conta_01.verificar_saldo();
+            	case 2:	Conta.verificar_saldo();
             			break;
-            	case 3: System.out.println("Informe o valor do depósito: ");
+            	case 3: System.out.println("Informe o valor do depÃ³sito: ");
             			valor = entrada_pelo_teclado.nextDouble();
-            			conta_01.depositar(valor);
+            			Conta.depositar(valor);
             			break;
             	case 4: System.out.println("Informe o valor do saque: ");
         				valor = entrada_pelo_teclado.nextDouble();
-        				conta_01.sacar(valor);
+        				Conta.sacar(valor);
         				break;
-            	case 5: System.out.println("Informe o valor da transferência: ");
+            	case 5: System.out.println("Informe o valor da transferÃªncia: ");
         				valor = entrada_pelo_teclado.nextDouble();
-        				conta_01.transferir(valor, conta_02);
+        				Conta.transferir(valor, conta_02);
             			break;	
             	case 6: System.out.println("Programa encerrado.");
             }
